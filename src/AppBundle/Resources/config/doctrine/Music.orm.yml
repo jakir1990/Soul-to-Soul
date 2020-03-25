@@ -1,0 +1,20 @@
+AppBundle\Entity\Music:
+  type: entity
+  table: music
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    musicName:
+      type: string
+      nullable: false
+      options:
+        fixed: false
+      column: music_name
+  lifecycleCallbacks: {  }

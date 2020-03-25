@@ -1,0 +1,24 @@
+userroles_index:
+    path:     /
+    defaults: { _controller: "AppBundle:UserRoles:index" }
+    methods:  GET
+
+userroles_show:
+    path:     /{userRoleName}/show
+    defaults: { _controller: "AppBundle:UserRoles:show" }
+    methods:  GET
+
+userroles_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:UserRoles:new" }
+    methods:  [GET, POST]
+
+userroles_edit:
+    path:     /{userRoleName}/edit
+    defaults: { _controller: "AppBundle:UserRoles:edit" }
+    methods:  [GET, POST]
+
+userroles_delete:
+    path:     /{userRoleName}/delete
+    defaults: { _controller: "AppBundle:UserRoles:delete" }
+    methods:  DELETE

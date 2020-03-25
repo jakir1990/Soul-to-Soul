@@ -1,0 +1,45 @@
+AppBundle\Entity\Complementerities:
+  type: entity
+  table: complementerities
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    qualities:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: qualities
+    temperament:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: temperament
+    whatIDont:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: what_i_dont
+    myIdeal:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: my_ideal
+    userId:
+      type: integer
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+      column: user_id
+  lifecycleCallbacks: {  }

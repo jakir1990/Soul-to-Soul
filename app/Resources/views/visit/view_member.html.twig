@@ -1,0 +1,54 @@
+﻿{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4 order-lg-1 text-center bg-light pt-3"><img class="rounded-circle img-fluid" src="{{ asset('RFAsset/assets/img/profile-pic1.jpg')}}" width="100" height="100" style="margin-bottom:20px;">
+            <h5 style="font-family: Lato, sans-serif;"><strong>{{ mem_info[0]['full_name'] }}</strong></h5>
+            <p class="text-muted" style="font-size: 12px;"><strong>{{ mem_info[0]['city_name'] }}, {{ mem_info[0]['country_name'] }}</strong></p>
+            <ul class="list-inline profile-features" style="margin-top: 20px;margin-bottom: 20px;">
+                <li class="list-inline-item"><a href="#"><i class="icon-eye" style="font-size: 24px;"></i><span class="profile-badge badge badge-info">299</span><div><span>Visits<br></span></div></a></li>
+                <li class="list-inline-item"><a href="#"><i class="icon-chart" style="font-size: 24px;"></i><span class="profile-badge badge badge-secondary">55</span><div><span>Votes<br></span></div></a></li>
+                <li class="list-inline-item"><a href="#"><i class="icon-globe" style="font-size: 24px;"></i><span class="profile-badge badge badge-success">273</span><div><span>Connections<br></span></div></a></li>
+            </ul>
+            <ul class="list-inline profile-features-nav slider-slide">
+                <li class="list-inline-item">
+                    <a class="text-success" href="#">
+                        <i class="icon-like" style="font-size: 32px;"></i>
+                        <div>
+                            <span>Like<br></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="text-danger" href="#" onclick="connet({{ mem_info[0]['id'] }});">
+                        <i class="icon-refresh" style="font-size: 32px;"></i>
+                        <div>
+                            <span id="cnct">Connect<br></span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        function connet(value) {
+            var id = value;
+            var path = "{{ (path('add_connect', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+            path = path.replace("ReplaceMeWithCorrectValue", id);
+            $.ajax({
+                type: 'POST',
+                url: path,
+                success: function (data) {
+                    var reqId = data;
+                    if(reqId == '0'){
+                        $("#cnct").text('Already Request Send .');
+                    }else{
+                        $("#cnct").text(' Request Send .');
+                    }
+
+                }
+            });
+        }
+    </script>
+{% endblock %}

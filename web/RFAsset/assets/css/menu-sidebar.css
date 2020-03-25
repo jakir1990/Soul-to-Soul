@@ -1,0 +1,124 @@
+/* Right-side-menu-In-modal */
+.btn-block {
+  width: 36px;
+  height: 2px;
+  position: relative;
+  margin-right: 15px;
+  transition: all 0.5s ease-in-out;
+  background-color: #ffffff;
+}
+.btn-block:after, .btn-block:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 0;
+  width: 36px;
+  height: 2px;
+  transition: all 0.5s ease-in-out;
+  background-color: #ffffff; }
+.btn-block:after {
+  top: auto;
+  bottom: -8px;
+  width: 24px; }
+.nav-link:hover span:before {
+  width: 24px; }
+.nav-link:hover span:after {
+  width: 36px; }
+
+/* Open Modal */
+.modal.left .modal-dialog {
+  position:fixed;
+  right: 0;
+  margin: auto;
+  width: 320px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+  animation: anmt .4s linear;
+}
+
+.modal.left .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+@keyframes anmt {
+  0% {
+    width: 0;
+    transition: 2s;
+  }
+  100% {
+    width: 320px;
+    transition: s;
+  }
+}
+
+.modal-header img {
+  cursor: pointer;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.modal-header img:hover {
+  
+}
+
+.modal-content {
+  border-radius: 0;
+}
+.modal-body ul li {
+  cursor: pointer;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
+}
+.modal-body ul li a {
+  color: #222222;
+  text-decoration: none;
+}
+.modal-body ul li:hover a {
+  color: #de26d6;
+  text-decoration: none;
+}
+.modal-body ul li a span {
+  padding: 1rem;
+}
+
+#slidebar-close-btn {
+  cursor: pointer;
+  padding: 10px 15px;
+  direction: ltr;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
+}
+#slidebar-close-btn span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  line-height: 40px;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+#slidebar-close-btn span svg {
+  font-size: 19px;
+  color: #000000;
+}
+svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}

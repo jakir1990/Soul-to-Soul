@@ -1,0 +1,22 @@
+AppBundle\Entity\UserRoles:
+  type: entity
+  table: user_roles
+  repositoryClass: AppBundle\Repository\UserRolesRepository
+  id:
+    userRoleName:
+      type: string
+      nullable: false
+      length: 16
+      options:
+        fixed: false
+      id: true
+
+  fields:
+    userRole:
+      type: string
+      nullable: false
+      length: 45
+      options:
+        fixed: false
+      column: user_role
+  lifecycleCallbacks: {  }

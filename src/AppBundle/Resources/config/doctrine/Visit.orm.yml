@@ -1,0 +1,26 @@
+AppBundle\Entity\Visit:
+  type: entity
+  table: visit
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    userId:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: user_id
+    visitorId:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: visitor_id
+  lifecycleCallbacks: {  }

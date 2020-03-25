@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-lg-5 order-lg-1">
+                    <div class="card">
+                        <div class="card-body"><img class="rounded-circle img-fluid" src="{{ asset('RFAsset/assets/img/profile-pic1.jpg')}}" width="100" height="100" align="left" style="margin-right: 30px;">
+                            <h4 class="card-title"><strong>{{ app.user.getFullName }}</strong></h4>
+                            <h6 class="text-muted card-subtitle mb-2">{{ app.user.getCity }}, {{ app.user.getCountry }}</h6>
+                            <ul class="list-inline profile-status" style="font-size: 14px;margin-bottom: 0;">
+                                <li class="list-inline-item">Likes</li>
+                                <li class="list-inline-item">Views</li>
+                                <li class="list-inline-item">Connections</li>
+                            </ul>
+                            <ul class="list-inline profile-status">
+                                <li class="list-inline-item"><strong>99</strong></li>
+                                <li class="list-inline-item"><strong>786</strong></li>
+                                <li class="list-inline-item"><strong>35</strong></li>
+                            </ul>
+                            <hr>
+                            <ul class="list-inline profile-features">
+                                <li class="list-inline-item"><a href="#"><i class="icon-people" style="font-size: 32px;"></i><div><span>Requests<br></span><strong>59</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-like" style="font-size: 32px;"></i><div><span>Accepted<br></span><strong>34</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-trash" style="font-size: 32px;"></i><div><span>Refused<br></span><strong>59</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-bubbles" style="font-size: 32px;"></i><div><span>Matched<br></span><strong>454</strong></div></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-lg-2" id="personal-information">
+
+                    <div class="card">
+                     <form method="post" action="{{ '/add-lifestyle' }}">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-heart mr-2"></i>Life style / Instructions<i class="icon-pencil float-right"></i></p>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPlayingLeisure">Foods</label>
+                                <div class="col-sm-9">
+                                    <input type="hidden" class="from-control" name="id" value="{{ app.user.getId }}">
+                                    <select id="selPlayingLeisure" class="form-control" name="foods">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Foods</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selSportsInLeisure">I Cook</label>
+                                <div class="col-sm-9">
+                                    <select id="selSportsInLeisure" class="form-control" name="i_cook">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select I Cook</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selAssociations">Alcohol</label>
+                                <div class="col-sm-9">
+                                    <select id="selAssociations" class="form-control" name="alcohol">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Alcohol</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selVolunteering">Tabac
+                                    <br></label>
+                                <div class="col-sm-9">
+                                    <select id="selVolunteering" class="form-control" name="tabac">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Tabac </option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">Accompanied Animal<br></label>
+                                <div class="col-sm-9">
+                                    <select id="selPassions" class="form-control" name="pet_animal">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Accompanied Animal</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selSportsInLeisure">Confessions</label>
+                                <div class="col-sm-9">
+                                    <select id="selSportsInLeisure" class="form-control" name="confessions">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Confessions</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selAssociations">Believes (Religion)</label>
+                                <div class="col-sm-9">
+                                    <select id="selAssociations" class="form-control" name="religion">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Believes (Religion)</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selVolunteering">Professions
+                                    <br></label>
+                                <div class="col-sm-9">
+                                    <select id="selVolunteering" class="form-control" name="profession">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Professions </option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">Diplomas<br></label>
+                                <div class="col-sm-9">
+                                    <select id="selPassions" class="form-control" name="diplomas">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Diplomas</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">School / Heigh School / Fac<br></label>
+                                <div class="col-sm-9">
+                                    <select id="selPassions" class="form-control" name="high_school">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select School / Heigh School / Fac</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">Nationality<br></label>
+                                <div class="col-sm-9">
+                                    <select id="selPassions" class="form-control" name="nationality">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Nationality</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">Origins<br></label>
+                                <div class="col-sm-9">
+                                    <select id="selPassions" class="form-control" name="origin">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Origins</option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">Spoken Languages <br></label>
+                                <div class="col-sm-9">
+                                    <select id="selPassions" class="form-control" name="language">
+                                        <optgroup label="Agreements/Matching">
+                                            <option value="0" selected="">Select Spoken Languages </option>
+                                            <option value="1">List item - 01</option>
+                                            <option value="2">List item - 02</option>
+                                            <option value="3">List item - 03</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-lg text-uppercase border rounded gradient-color float-right mt-2" type="sybmit" name="btn">
+                                <span class="mr-3">Proceed</span>
+                                <i class="icon-arrow-right-circle"></i>
+                            </button>
+                        </div>
+                     </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

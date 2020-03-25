@@ -1,0 +1,56 @@
+/* Cookie Style */
+
+.table-bordered tr th, td{
+	min-width:200px;
+}
+.cookies-policy-custom p{
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #343434e6;
+    font-weight: 100;
+    line-height: 1.3em;
+}
+b {
+    font-weight: bold;
+}
+.cookie-heading{
+	color: #343434d1;
+    font-family: Catamaran;
+    font-weight: 100 !important;
+    font-size: 35px;
+    line-height: 35px;
+}
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Privacy Policy Style */
+#privacy-custom{
+    font-family: auto !important;
+
+}
+#privacy-custom b{
+    font-family: "Catamaran";
+    color: #212529;
+}
+#privacy-custom p, li{
+    font-family: "Lato";
+    color: gray;
+}
+#privacy-custom .privacy-heading{
+    color: #343434;
+    font-family: Lato;
+    font-weight: 300 !important;
+    font-size: 35px;
+    line-height: 35px;
+}
+
+/* Terms Style */
+#terms-custom p{
+	font-family: Catamaran;
+    font-size: 18px;
+    color: #343434e6;
+    font-weight: 100;
+    line-height: 1.3em;
+}

@@ -1,0 +1,56 @@
+AppBundle\Entity\Agreements:
+    type: entity
+    table: agreements
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        playingLeisure:
+            type: integer
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: playingLeisure
+        sportsInLeisure:
+            type: integer
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: sportsInLeisure
+        associations:
+            type: integer
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: associations  
+        volunteering:
+            type: integer
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: volunteering  
+        passions:
+            type: integer
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: passions
+        userId:
+            type: integer
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: user_id
+    lifecycleCallbacks: {  }

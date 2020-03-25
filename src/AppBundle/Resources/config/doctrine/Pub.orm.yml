@@ -1,0 +1,20 @@
+AppBundle\Entity\Pub:
+  type: entity
+  table: pub
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    pubName:
+      type: string
+      nullable: false
+      options:
+        fixed: false
+      column: pub_name
+  lifecycleCallbacks: {  }

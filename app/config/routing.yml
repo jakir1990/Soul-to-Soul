@@ -1,0 +1,121 @@
+app_want_to_meet_for:
+    resource: "@AppBundle/Controller/WantToMeetForController.php"
+    type:     annotation
+
+app_pub:
+    resource: "@AppBundle/Controller/PubController.php"
+    type:     annotation
+
+app_films:
+    resource: "@AppBundle/Controller/FilmsController.php"
+    type:     annotation
+
+app_music:
+    resource: "@AppBundle/Controller/MusicController.php"
+    type:     annotation
+
+app_country:
+    resource: "@AppBundle/Controller/CountryController.php"
+    type:     annotation
+
+app_city:
+    resource: "@AppBundle/Controller/CityController.php"
+    type:     annotation
+
+dating_api:
+    resource: "@DatingApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
+home:
+    path:     /
+    defaults: { _controller: "AppBundle:Login:login" }
+    methods:  [GET, POST]
+
+login:
+    path:     /login
+    defaults: { _controller: "AppBundle:Login:login" }
+    methods:  [GET, POST]
+
+logout:
+    path: /logout
+
+add_user:
+  path:     /add-user
+  defaults: { _controller: "AppBundle:Users:addUser" }
+  methods:  POST
+
+profile:
+    path:     /profile
+    defaults: { _controller: "AppBundle:Login:profile" }
+    methods:  GET
+
+cookie_policy:
+  path:     /cookie-policy
+  defaults: { _controller: "AppBundle:Users:cookiePolicy" }
+  methods:  GET
+
+privacy_policy:
+  path:     /privacy-policy
+  defaults: { _controller: "AppBundle:Users:privacyPolicy" }
+  methods:  GET
+
+count_country:
+  path:     /count-country/{id}
+  defaults: { _controller: "AppBundle:Users:getTotCountry" }
+  methods:  [GET, POST]
+
+count_city:
+  path:     /count-city/{id}
+  defaults: { _controller: "AppBundle:Users:getTotCity" }
+  methods:  [GET, POST]
+
+count_music:
+  path:     /count-music/{id}
+  defaults: { _controller: "AppBundle:Users:getTotMusic" }
+  methods:  [GET, POST]
+
+count_film:
+  path:     /count-film/{id}
+  defaults: { _controller: "AppBundle:Users:getTotFilms" }
+  methods:  [GET, POST]
+
+count_pub:
+  path:     /count-pub/{id}
+  defaults: { _controller: "AppBundle:Users:getTotPub" }
+  methods:  [GET, POST]
+
+count_dob:
+  path:     /count-dob/{id}
+  defaults: { _controller: "AppBundle:Users:getTotDob" }
+  methods:  [GET, POST]
+
+count_name:
+  path:     /count-name/{id}
+  defaults: { _controller: "AppBundle:Users:getTotName" }
+  methods:  [GET, POST]
+
+update_profile:
+  path:     /add-profile
+  defaults: { _controller: "AppBundle:Users:updateUser" }
+  methods:  POST
+
+visits:
+  path:     /visits
+  defaults: { _controller: "AppBundle:Visit:index" }
+  methods:  GET
+
+view_member:
+  path:     /view-member/{id}
+  defaults: { _controller: "AppBundle:Visit:viewMember" }
+  methods:  GET
+
+add_connect:
+  path:     /add-connect/{id}
+  defaults: { _controller: "AppBundle:Visit:addConnection" }
+  methods:  [GET, POST]
+
+user_request:
+  path:     /user-request
+  defaults: { _controller: "AppBundle:UserRequest:index" }
+  methods:  GET

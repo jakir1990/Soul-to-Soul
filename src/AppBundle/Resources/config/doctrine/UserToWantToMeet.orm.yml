@@ -1,0 +1,26 @@
+AppBundle\Entity\UserToWantToMeet:
+  type: entity
+  table: user_to_want_to_meet
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    userId:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: user_id
+    wantToMeet:
+      type: text
+      nullable: false
+      options:
+        fixed: false
+      column: want_to_meet
+  lifecycleCallbacks: {  }

@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-lg-5 order-lg-1">
+                    <div class="card">
+                        <div class="card-body"><img class="rounded-circle img-fluid" src="{{ asset('RFAsset/assets/img/profile-pic1.jpg')}}" width="100" height="100" align="left" style="margin-right: 30px;">
+                            <h4 class="card-title"><strong>{{ app.user.getFullName }}</strong></h4>
+                            <h6 class="text-muted card-subtitle mb-2">{{ app.user.getCity }}, {{ app.user.getCountry }}</h6>
+                            <ul class="list-inline profile-status" style="font-size: 14px;margin-bottom: 0;">
+                                <li class="list-inline-item">Likes</li>
+                                <li class="list-inline-item">Views</li>
+                                <li class="list-inline-item">Connections</li>
+                            </ul>
+                            <ul class="list-inline profile-status">
+                                <li class="list-inline-item"><strong>99</strong></li>
+                                <li class="list-inline-item"><strong>786</strong></li>
+                                <li class="list-inline-item"><strong>35</strong></li>
+                            </ul>
+                            <hr>
+                            <ul class="list-inline profile-features">
+                                <li class="list-inline-item"><a href="#"><i class="icon-people" style="font-size: 32px;"></i><div><span>Requests<br></span><strong>59</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-like" style="font-size: 32px;"></i><div><span>Accepted<br></span><strong>34</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-trash" style="font-size: 32px;"></i><div><span>Refused<br></span><strong>59</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-bubbles" style="font-size: 32px;"></i><div><span>Matched<br></span><strong>454</strong></div></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-lg-2" id="personal-information">
+                    <div class="card">
+                        <form method="post" action="{{ '/add-criteria' }}"> 
+                            <div class="card-body">
+                                <p class="text-uppercase"><i class="icon-plus mr-2"></i>want to meet For<i class="icon-pencil float-right"></i></p>
+
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkFriendly" class="form-check-input" name="friendly" value="1" {% if app.user.getCity == 'Paris' %} {{'Selected'}} {% endif %}>
+                                    <input type="hidden" class="from-control" name="id" value="{{ app.user.getId }}">
+                                    <label class="form-check-label" for="chkFriendly">Friendly</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkLove" class="form-check-input" name="love" value="1">
+                                    <label class="form-check-label" for="chkLove">Love</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkSports" class="form-check-input" name="sports" value="1">
+                                    <label class="form-check-label" for="chkSports">Sports</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkPlayful" class="form-check-input" name="professionals" value="1">
+                                    <label class="form-check-label" for="chkPlayful">Playful</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkProfessionals" class="form-check-input" name="intellectuals" value="1">
+                                    <label class="form-check-label" for="chkProfessionals">Professionals</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkIntellectualsOPolitical" class="form-check-input" name="associatives" value="1">
+                                    <label class="form-check-label" for="chkIntellectualsOPolitical">Intellectuals Or Political</label>
+                                </div>
+                                <div
+                                    class="form-check"><input type="checkbox" id="chkAssocicativesOCollaboratives" class="form-check-input" name="science" value="1">
+                                    <label class="form-check-label" for="chkAssocicativesOCollaboratives">Associcatives Or Collaboratives</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkThelogical" class="form-check-input" name="1">
+                                    <label class="form-check-label" for="chkThelogical">Thelogical</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" id="chkScienceOPhilosophyOPsycho" class="form-check-input" name="science" value="1">
+                                    <label class="form-check-label" for="chkScienceOPhilosophyOPsycho">Science Or&nbsp;Philosophy Or Psycho</label>
+                                </div>
+                                <div
+                                    class="form-check">
+                                    <input type="checkbox" id="chkOther" class="form-check-input" name="others" value="1">
+                                    <label class="form-check-label" for="chkOther">Other</label>
+                                </div>
+                                <button class="btn btn-primary btn-lg text-uppercase border rounded gradient-color float-right mt-2" type="submit" name="btn">
+                                    <span class="mr-3">Proceed</span>
+                                    <i class="icon-arrow-right-circle"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+{% endblock %}

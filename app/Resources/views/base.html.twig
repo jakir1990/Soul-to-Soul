@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Dating Social Network</title>
+        <meta name="description" content="A social network against social, professional, physical, sexist, homophobic, also ethnic discrimination.">
+        <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('RFAsset/assets/img/Logo.png')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/fonts/ionicons.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/fonts/simple-line-icons.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/css/Footer-Basic.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/css/Footer-Dark.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/css/style.css')}}">
+    </head>
+    <body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark gradient-color">
+        <div class="container"><a class="navbar-brand" href="{{ 'profile' }}"><img src="{{ asset('RFAsset/assets/img/Logo.png')}}" style="width: 32px;margin-right: 5px;"><strong>Soul 2 Soul</strong></a><button class="navbar-toggler" data-toggle="collapse"><span class="navbar-toggler-icon"></span></button></div>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="row" id="mainNavigation" style="margin-top:100px; margin-bottom:50px;">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-4 offset-md-4 avatar-container mb-5"><img class="rounded-circle img-fluid" src="{{ asset('RFAsset/assets/img/profile-pic1.jpg')}}" width="100" height="100" align="left" style="margin-right: 30px;">
+                                <div class="pt-3">
+                                    <h5 style="font-family: Lato, sans-serif;"><strong>{{ app.user.getFullName }}40</strong></h5>
+                                    <h6 class="text-muted m-0">{{ user_info[0]['city_name'] }}, {{ user_info[0]['country_name'] }}</h6><span style="font-size: 14px;">Success :&nbsp;<strong>299</strong></span></div>
+                            </div>
+                            <ul class="list-inline profile-features">
+                                <li class="list-inline-item"><a href="feeds.html"><i class="icon-feed" style="font-size: 32px;"></i><div><span>Feed<br></span><strong></strong></div></a></li>
+                                <li class="list-inline-item"><a href="{{ 'profile' }}"><i class="icon-user" style="font-size: 32px;"></i><div><span>Profile<br></span><strong></strong></div></a></li>
+                                <li class="list-inline-item"><a href="notifications.html"><i class="icon-bell" style="font-size: 32px;"></i><div><span>Notifications<br></span><strong></strong></div></a></li>
+                                <li class="list-inline-item"><a href="{{ 'visits' }}"><i class="icon-eye" style="font-size: 32px;"></i><span class="profile-badge badge badge-info">{{ totalvisit }}</span><div><span>Visits<br></span></div></a></li>
+                                <li class="list-inline-item"><a href="{{ 'user-request' }}"><i class="icon-people" style="font-size: 32px;"></i><span class="profile-badge badge badge-secondary">{{ totalRqst }}</span><div><span>Requests<br></span></div></a></li>
+                                <li class="list-inline-item"><a href="connections.html"><i class="icon-heart" style="font-size: 32px;"></i><span class="profile-badge badge badge-success">273</span><div><span>Connections<br></span></div></a></li>
+                                <li class="list-inline-item"><a href="refused.html"><i class="icon-trash" style="font-size: 32px;"></i><span class="profile-badge badge badge-primary">45</span><div><span>Refused<br></span></div></a></li>
+                                <li class="list-inline-item"><a href="message.html"><i class="icon-bubbles" style="font-size: 32px;"></i><div><span>Messages<br></span></div></a></li>
+                                <li class="list-inline-item"><a href="connect.html"><i class="icon-refresh" style="font-size: 32px;"></i><div><span>Connect<br></span></div></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% block body %}
+
+        {% endblock %}
+        {% block javascripts %}
+            <div class="footer-basic" style="margin-top: 100px;">
+                <footer>
+                    <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Home</a></li>
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><a href="#">Terms of use</a></li>
+                        <li class="list-inline-item"><a href="#">Cookie Policy</a></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="copyright">Dating Social Network © 2020</p>
+                </footer>
+            </div>
+            <script src="{{ asset('RFAsset/assets/js/jquery.min.js')}}"></script>
+            <script src="{{ asset('RFAsset/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+            <script src="{{ asset('RFAsset/assets/js/main.js')}}"></script>
+            <script src="{{ asset('RFAsset/assets/js/bs-init.js')}}"></script>
+        </body>
+    </html>
+{% endblock %}

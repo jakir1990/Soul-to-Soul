@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Wanttomeetfors list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Meetfor</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for wantToMeetFor in wantToMeetFors %}
+            <tr>
+                <td><a href="{{ path('wanttomeetfor_show', { 'id': wantToMeetFor.id }) }}">{{ wantToMeetFor.id }}</a></td>
+                <td>{{ wantToMeetFor.meetFor }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('wanttomeetfor_show', { 'id': wantToMeetFor.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('wanttomeetfor_edit', { 'id': wantToMeetFor.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('wanttomeetfor_new') }}">Create a new wantToMeetFor</a>
+        </li>
+    </ul>
+{% endblock %}

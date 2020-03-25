@@ -1,0 +1,55 @@
+app_users:
+    resource: "@AppBundle/Resources/config/routing/users.yml"
+    prefix:   /users
+
+app_subjects:
+    resource: "@AppBundle/Resources/config/routing/subjects.yml"
+    prefix:   /subjects
+
+app_subjectdivision:
+    resource: "@AppBundle/Resources/config/routing/subjectdivision.yml"
+    prefix:   /subjectdivision
+
+app_questiontypes:
+    resource: "@AppBundle/Resources/config/routing/questiontypes.yml"
+    prefix:   /questiontypes
+
+app_questionsettings:
+    resource: "@AppBundle/Resources/config/routing/questionsettings.yml"
+    prefix:   /questionsettings
+
+app_questionbank:
+    resource: "@AppBundle/Resources/config/routing/questionbank.yml"
+    prefix:   /questionbank
+
+app_publicexams:
+    resource: "@AppBundle/Resources/config/routing/publicexams.yml"
+    prefix:   /publicexams
+
+app_onlineexamdetail:
+    resource: "@AppBundle/Resources/config/routing/onlineexamdetail.yml"
+    prefix:   /onlineexamdetail
+
+app_onlineexam:
+    resource: "@AppBundle/Resources/config/routing/onlineexam.yml"
+    prefix:   /onlineexam
+
+app_answermcq:
+    resource: "@AppBundle/Resources/config/routing/answermcq.yml"
+    prefix:   /answermcq
+
+app_chapters:
+    resource: "@AppBundle/Resources/config/routing/chapters.yml"
+    prefix:   /chapters
+
+app_userroles:
+    resource: "@AppBundle/Resources/config/routing/userroles.yml"
+    prefix:   /userroles
+
+app_company:
+    resource: "@AppBundle/Resources/config/routing/company.yml"
+    prefix:   /company
+
+app_modelTest:
+    resource: "@AppBundle/Resources/config/routing/modeltest.yml"
+    prefix:   /modelTest

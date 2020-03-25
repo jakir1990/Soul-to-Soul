@@ -1,0 +1,117 @@
+html, body {
+  scroll-behavior: smooth;
+}
+
+header.masthead {
+  background: linear-gradient(0deg,#1e4180,#ee0979);
+}
+
+header.masthead .bg-circle {
+  background: linear-gradient(0deg,#6c09ee54,#ff6a002b);
+}
+
+.bg-circle-1.bg-circle {
+}
+
+.member-count {
+  margin-right: 10px;
+}
+
+.profile-features .list-inline-item {
+  margin-right: 50px;
+  position: relative;
+}
+
+.profile-features, .navbar-links {
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+
+.profile-features a:hover {
+  color: #7f00ff;
+}
+
+.profile-features a {
+  color: gray;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.profile-badge {
+  position: absolute;
+  top: -8px;
+  left: 25px;
+  font-size: 16px;
+}
+
+.profile-details select {
+  margin-bottom: 10px;
+}
+
+.icon-camrecorder {
+}
+
+a {
+  text-decoration: none;
+}
+
+input, select {
+  color: #9E9E9E !important;
+}
+
+.form-check-label {
+  color: #9E9E9E;
+}
+
+.slider-slide {
+  margin-top: 50px;
+}
+
+.form-check {
+  margin-bottom: 5px;
+}
+
+.slider-slide a {
+  display: block;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.profile-features-nav .list-inline-item {
+  margin-right: 27px;
+  text-align: center;
+}
+
+ul.profile-features-nav li:last-child {
+  margin-right: 0;
+}
+
+.profile-features-nav a {
+  text-decoration: none;
+}
+
+.card {
+  border: none;
+}
+
+.profile-features a.active {
+  color: #7f00ff;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header.masthead .masthead-content h1, header.masthead .masthead-content h3 {
+  color: white;
+}
+
+.profile-features .list-requests:not(:last-child) {
+  margin-right: 15px !important;
+}
+

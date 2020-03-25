@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-lg-5 order-lg-1">
+                    <div class="card">
+                        <div class="card-body"><img class="rounded-circle img-fluid" src="{{ asset('RFAsset/assets/img/profile-pic1.jpg')}}" width="100" height="100" align="left" style="margin-right: 30px;">
+                            <h4 class="card-title"><strong>{{ app.user.getFullName }}</strong></h4>
+                            <h6 class="text-muted card-subtitle mb-2">{{ app.user.getCity }}, {{ app.user.getCountry }}</h6>
+                            <ul class="list-inline profile-status" style="font-size: 14px;margin-bottom: 0;">
+                                <li class="list-inline-item">Likes</li>
+                                <li class="list-inline-item">Views</li>
+                                <li class="list-inline-item">Connections</li>
+                            </ul>
+                            <ul class="list-inline profile-status">
+                                <li class="list-inline-item"><strong>99</strong></li>
+                                <li class="list-inline-item"><strong>786</strong></li>
+                                <li class="list-inline-item"><strong>35</strong></li>
+                            </ul>
+                            <hr>
+                            <ul class="list-inline profile-features">
+                                <li class="list-inline-item"><a href="#"><i class="icon-people" style="font-size: 32px;"></i><div><span>Requests<br></span><strong>59</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-like" style="font-size: 32px;"></i><div><span>Accepted<br></span><strong>34</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-trash" style="font-size: 32px;"></i><div><span>Refused<br></span><strong>59</strong></div></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="icon-bubbles" style="font-size: 32px;"></i><div><span>Matched<br></span><strong>454</strong></div></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-lg-2" id="personal-information">
+                   <div class="card">
+                        <form method="post" action="{{ '/add-agreement' }}">  
+                            <div class="card-body">
+                                <p class="text-uppercase"><i class="icon-heart mr-2"></i>AGReEMENTS/MATCHING<i class="icon-pencil float-right"></i></p>
+                                <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPlayingLeisure">Playing Leisure</label>
+                                    <div class="col-sm-9">
+                                        <input type="hidden" class="from-control" name="id" value="{{ app.user.getId }}">
+                                        <select id="selPlayingLeisure" class="form-control" name="playingLeisure">
+                                            <optgroup label="Agreements/Matching">
+                                                <option value="" selected="">Select Playing Leisure</option>
+                                                <option value="1">List item - 01</option>
+                                                <option value="2">List item - 02</option>
+                                                <option value="3">List item - 03</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row"><label class="col-sm-3 col-form-label" for="selSportsInLeisure">Sports In Leisure</label>
+                                    <div class="col-sm-9">
+                                        <select id="selSportsInLeisure" class="form-control" name="sportsInLeisure">
+                                            <optgroup label="Agreements/Matching">
+                                                <option value="0" selected="">Select Sports in Leisure</option>
+                                                <option value="1">List item - 01</option>
+                                                <option value="2">List item - 02</option>
+                                                <option value="3">List item - 03</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row"><label class="col-sm-3 col-form-label" for="selAssociations">Associations</label>
+                                    <div class="col-sm-9">
+                                        <select id="selAssociations" class="form-control" name="associations">
+                                            <optgroup label="Agreements/Matching">
+                                                <option value="0" selected="">Select Associations</option>
+                                                <option value="1">List item - 01</option>
+                                                <option value="2">List item - 02</option>
+                                                <option value="3">List item - 03</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row"><label class="col-sm-3 col-form-label" for="selVolunteering">Volunteering<br></label>
+                                    <div class="col-sm-9">
+                                        <select id="selVolunteering" class="form-control" name="volunteering">
+                                            <optgroup label="Agreements/Matching">
+                                                <option value="" selected="">Select Volunteering</option>
+                                                <option value="1">List item - 01</option>
+                                                <option value="2">List item - 02</option>
+                                                <option value="3">List item - 03</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">Passions<br></label>
+                                    <div class="col-sm-9">
+                                        <select id="selPassions" class="form-control" name="passions">
+                                            <optgroup label="Agreements/Matching">
+                                                <option value="" selected="">Select Passions</option>
+                                                <option value="1">List item - 01</option>
+                                                <option value="2">List item - 02</option>
+                                                <option value="3">List item - 03</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row"><label class="col-sm-3 col-form-label" for="selPassions">Others<br></label>
+                                    <div class="col-sm-9">
+                                        <select id="selOthers" class="form-control" name="others">
+                                            <optgroup label="Agreements/Matching">
+                                                <option value="" selected="">Select Others</option>
+                                                <option value="1">List item - 01</option>
+                                                <option value="2">List item - 02</option>
+                                                <option value="3">List item - 03</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-lg text-uppercase border rounded gradient-color float-right mt-2" type="sybmit" name="btn">
+                                    <span class="mr-3">Proceed</span>
+                                    <i class="icon-arrow-right-circle"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+{% endblock %}

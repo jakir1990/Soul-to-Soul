@@ -1,0 +1,33 @@
+AppBundle\Entity\UserRequest:
+  type: entity
+  table: user_request
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    userId:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: user_id
+    requestId:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: request_id
+    status:
+      type: boolean
+      nullable: false
+      options:
+        fixed: false
+        default: 0
+      column: status
+  lifecycleCallbacks: {  }

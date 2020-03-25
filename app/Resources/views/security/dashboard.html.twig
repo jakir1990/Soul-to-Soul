@@ -1,0 +1,441 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row" id="pageHeader">
+        <div class="col">
+            <h5 class="text-info text-center">Profile Management</h5>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:10px;">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text">Presentation</span></div><input type="text" class="form-control" style="width: 100%;" name="txtPresentation" placeholder="Say something about you."></div>
+                        </div>
+                        <div class="col-lg-4 align-self-center"><button class="btn btn-success" type="button" onclick="javascript:alert(&quot;This feature will be available after MVP&quot;);" style="width:100%"><i class="icon-control-play"></i>&nbsp;Record Presentation</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+         <form  method="POST" action="{{ path('update_profile') }}">
+            <div class="row" style="margin-bottom:10px;">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-plus mr-2"></i>want to meet For</p>
+                            <input type="hidden" class="from-control" name="user_id" value="{{ app.user.getId }}">
+                            {% for wantInfo in wantMeet %}
+                               <div class="form-check"><input type="checkbox" id="chkFriendly{{ wantInfo.id }}" class="form-check-input" name="want_to_meet[]" value="{{ wantInfo.id }}" {% if wantInfo.id in wantToMeet %} {{ 'checked' }} {% endif %} ><label class="form-check-label" for="chkFriendly{{ wantInfo.id }}"   > {{ wantInfo.meet_for }}&nbsp;</label></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-lg-1">
+                    <div class="card">
+                        <div class="card-body profile-details">
+                            <p class="text-uppercase"><i class="icon-heart mr-2"></i>What I like</p>
+                            <select class="form-control" name="favorite_film">
+                                <optgroup label="Profile">
+                                    <option value="0" selected="">Your favourite film</option>
+                                    <option value="13">This is item 2</option>
+                                    <option value="14">This is item 3</option>
+                                </optgroup>
+                            </select>
+                            <select class="form-control" name="favorite_music">
+                                <optgroup label="Profile">
+                                    <option value="0" selected="">Your favourite music</option>
+                                    <option value="13">This is item 2</option>
+                                    <option value="14">This is item 3</option>
+                                </optgroup>
+                            </select>
+                            <select class="form-control" name="preferred_adv">
+                                <optgroup label="Profile">
+                                    <option value="12" selected="">Your preferred advertising</option>
+                                    <option value="13">This is item 2</option>
+                                    <option value="14">This is item 3</option>
+                                </optgroup>
+                            </select>
+                            <select class="form-control" name="favorite_quote">
+                                <optgroup label="Profile">
+                                    <option value="12" selected="">Your favourite quote</option>
+                                    <option value="13">This is item 2</option>
+                                    <option value="14">This is item 3</option>
+                                </optgroup>
+                            </select>
+                            <select class="form-control" name="favorite_animal">
+                                <optgroup label="Profile">
+                                    <option value="0" selected="">Your favourite animal</option>
+                                    <option value="13">This is item 2</option>
+                                    <option value="14">This is item 3</option>
+                                </optgroup>
+                            </select>
+                            <select class="form-control" name="favorite_color">
+                                <optgroup label="Profile">
+                                    <option value="0" selected="">Your favourite color</option>
+                                    <option value="13">This is item 2</option>
+                                    <option value="14">This is item 3</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row profile-details" style="margin-bottom:10px;">
+                <div class="col-md-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-support mr-2"></i>AGReEMENTS/MATCHING<i class="icon-pencil float-right"></i></p><select id="selPlayingLeisure" class="form-control" name="selPlayingLeisure"><optgroup label="Agreements/Matching"><option value="0" selected="">Leisure activities</option><option value="1">List item - 01</option><option value="2">List item - 02</option><option value="3">List item - 03</option></optgroup></select>
+                            <select id="selSportsInLeisure" class="form-control" name="sportsInLeisure">
+                                <optgroup label="Agreements/Matching">
+                                    <option value="0" selected="">Sports activities</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selAssociations" class="form-control" name="associations">
+                                <optgroup label="Agreements/Matching">
+                                    <option value="0" selected="">Associations</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selVolunteering" class="form-control" name="volunteering">
+                                <optgroup label="Agreements/Matching">
+                                    <option value="0" selected="">Volunteering</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPassions" class="form-control" name="passions">
+                                <optgroup label="Agreements/Matching">
+                                    <option value="0" selected="">Passions</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select></div>
+                    </div>
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-music-tone-alt mr-2"></i>Cultures<i class="icon-pencil float-right"></i></p>
+                            <select id="selPlayingLeisure" class="form-control" name="music">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Music</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-8" class="form-control" name="musical_instrument">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Musical Instruments</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-7" class="form-control" name="literature">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Lectures</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-6" class="form-control" name="cinema">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Cinema</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-5" class="form-control" name="tv_series">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Television Series</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-4" class="form-control" name="documentaries">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Documentaries</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-3" class="form-control" name="arts">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Arts</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-2" class="form-control" name="sciences">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Sciences</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-1" class="form-control" name="photography">
+                                <optgroup label="Cultures">
+                                    <option value="0" selected="">Photography</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-chart mr-2"></i>Balance/Complementerities<i class="icon-pencil float-right"></i></p>
+                            <select id="selPlayingLeisure" class="form-control" name="qualities">
+                                <optgroup label="Balance/Complementarities">
+                                    <option value="0" selected="">Qualities/Defects</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selSportsInLeisure" class="form-control" name="temperament">
+                                <optgroup label="Agreements/Matching">
+                                    <option value="0" selected="">Temperament/Character</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selAssociations" class="form-control" name="what_i_dont">
+                                <optgroup label="Agreements/Matching">
+                                    <option value="0" selected="">What I don't</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selVolunteering" class="form-control" name="my_ideal">
+                                <optgroup label="Agreements/Matching">
+                                    <option value="0" selected="">My Ideal</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-book-open mr-2"></i>Education<i class="icon-pencil float-right"></i></p>
+                            <select id="selPlayingLeisure" class="form-control" name="degree">
+                                <optgroup label="Education">
+                                    <option value="0" selected="">Values</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selSportsInLeisure" class="form-control" name="commitments">
+                                <optgroup label="Education">
+                                    <option value="0" selected="">Commitments</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selAssociations" class="form-control" name="policies">
+                                <optgroup label="Education">
+                                    <option value="0" selected="">Policies</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-paper-clip mr-2"></i>Instructions<i class="icon-pencil float-right"></i></p>
+                            <select id="selPlayingLeisure" class="form-control" name="professions">
+                                <optgroup label="Instructions">
+                                    <option value="0" selected="">Professions</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-14" class="form-control" name="degrees">
+                                <optgroup label="Instructions">
+                                    <option value="0" selected="">Diplomas/Degrees</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-13" class="form-control" name="school_curriculum">
+                                <optgroup label="Instructions">
+                                    <option value="0" selected="">School Curriculum</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select
+                                    id="selPlayingLeisure-12" class="form-control" name="languages">
+                                <optgroup label="Instructions">
+                                    <option value="0" selected="">Spoken Languages</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-11" class="form-control" name="curriculum_vitae">
+                                <optgroup label="Instructions">
+                                    <option value="0" selected="">Curriculum Vitae</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-10" class="form-control" name="cover_letter">
+                                <optgroup label="Instructions">
+                                    <option value="0" selected="">Cover Letter</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-9" class="form-control" name="portfolio">
+                                <optgroup label="Instructions">
+                                    <option value="0" selected="">Portfolio</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-emotsmile mr-2"></i>Lift Style<i class="icon-pencil float-right"></i></p>
+                            <select id="selPlayingLeisure" class="form-control" name="foods">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">Food</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selSportsInLeisure" class="form-control" name="i_cook">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">I cook</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selAssociations" class="form-control" name="alcohol">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">Alcohols</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selVolunteering" class="form-control" name="tabac">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">Tabacs</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPassions" class="form-control" name="pet_animal">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">Pet</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPassions-3" class="form-control" name="confessions">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">Confessions</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPassions-2" class="form-control" name="nationality">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">Nationalities</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPassions-1" class="form-control" name="origin">
+                                <optgroup label="Life Style">
+                                    <option value="0" selected="">Origines</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p class="text-uppercase"><i class="icon-list mr-2"></i>Expectations/Aspirations<i class="icon-pencil float-right"></i></p>
+                            <select id="selPlayingLeisure" class="form-control" name="projects">
+                                <optgroup label="Expectations/Aspirations">
+                                    <option value="0" selected="">Projects</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select  id="selPlayingLeisure-16" class="form-control" name="dream">
+                                <optgroup label="Expectations/Aspirations">
+                                    <option value="0" selected="">Dreams</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                            <select id="selPlayingLeisure-15" class="form-control" name="others">
+                                <optgroup label="Expectations/Aspirations">
+                                    <option value="0" selected="">Others</option>
+                                    <option value="1">List item - 01</option>
+                                    <option value="2">List item - 02</option>
+                                    <option value="3">List item - 03</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" name="update" class="btn btn-primary btn-lg text-uppercase border rounded gradient-color float-right"><span class="mr-3"> Connect </span><i class="icon-arrow-right-circle"></i></button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </section>
+{% endblock %}

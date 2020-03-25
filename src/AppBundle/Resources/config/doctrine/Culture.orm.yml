@@ -1,0 +1,75 @@
+AppBundle\Entity\Culture:
+  type: entity
+  table: culture
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    music:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: music
+    musicalInstrument:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: musical_instrument
+    literature:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: literature
+    cinema:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: cinema
+    tvSeries:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: tv_series
+    documentaries:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: documentaries
+    arts:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: arts
+    sciences:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: sciences
+    photography:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: photography
+    userId:
+      type: integer
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+      column: user_id
+  lifecycleCallbacks: {  }

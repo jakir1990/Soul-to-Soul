@@ -1,0 +1,69 @@
+AppBundle\Entity\LifeStyle:
+  type: entity
+  table: life_style
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    foods:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: foods
+    iCook:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: i_cook
+    alcohol:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: alcohol
+    tabac:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: tabac
+    petAnimal:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: pet_animal
+    confessions:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: confessions
+    nationality:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: nationality
+    origin:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: origin
+    userId:
+      type: integer
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+      column: user_id
+  lifecycleCallbacks: {  }

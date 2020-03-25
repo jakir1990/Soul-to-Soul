@@ -1,0 +1,323 @@
+{% extends 'baseLogin.html.twig' %}
+{% block body %}
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+            <div class="container">
+                <h1 class="masthead-heading mb-0">Dating Social Network</h1>
+                <h2 class="masthead-subheading mb-0" style="font-size: 42px;">Highlighting the common interest between each profile</h2>
+                <h1 class="masthead-subheading mb-0" style="font-family: Lato, sans-serif;font-size: 48px;margin-top: 50px;">2 587 945 Members</h1>
+            </div>
+        </div>
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+    <div id="sign-up" style="height: 100px;"></div>
+    <section style="margin-bottom: 100px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-3" id="personal-information">
+                    <form  method="POST" action="{{ path('add_user') }}">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="text-uppercase"><i class="icon-user mr-2"></i>Sign up</p>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-user" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <input type="text" id="txtName" class="form-control" name="full_name" placeholder="Enter your name" maxlength="100"  minlength="3" onblur = "getName(this.value)">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="text-info">
+                                            <span id="matchingName" class="member-count"> 0 Member Found ! </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-calendar" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <input data-toggle="tooltip" data-bs-tooltip="" id="birth_date" class="form-control" type="date" name="birth_date" title="Date of birth">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="text-info">
+                                            <span id="matchingDob" class="member-count"> 0 Member Found ! </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-location-pin" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <select id="city_id" class="custom-select" name="city_id">
+                                                <optgroup label="City">
+                                                    <option value="12" selected="">Select your city</option>
+                                                    {% for cityName in city %}
+                                                        <option value="{{ cityName.getId }}">{{ cityName.getCityName }}</option>
+                                                    {% endfor %}
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="text-info">
+                                            <span id="matchingCity" class="member-count"> 0 Member Found ! </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-home" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <select id="country_id" class="form-control" name="country_id">
+                                                <optgroup label="Country">
+                                                    <option value="12" selected="">Select your country</option>
+                                                    {% for countryName in country %}
+                                                        <option value="{{ countryName.getId }}">{{ countryName.getCountryName }}</option>
+                                                    {% endfor %}
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="text-info">
+                                            <span id="matchingCountry" class="member-count"> 0 Member Found ! </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-music-tone-alt" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <select id="music_id" class="form-control" name="music_id">
+                                                <optgroup label="Music">
+                                                    <option value="0" selected="">Select your favourite music</option>
+                                                    {% for musicName in music %}
+                                                        <option value="{{ musicName.getId }}">{{ musicName.getMusicName }}</option>
+                                                    {% endfor %}
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="text-info">
+                                            <span id="matchingMusic" class="member-count"> 0 Member Found ! </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-film" style="width: 16px;height: 16px;"></i></span>
+                                            </div><select id="film_id" class="form-control" name="film_id">
+                                                <optgroup label="Films">
+                                                    <option value="0" selected="">Select your favourite films</option>
+                                                    {% for filmsName in films %}
+                                                        <option value="{{ filmsName.getId }}">{{ filmsName.getFilmName }}</option>
+                                                    {% endfor %}
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="text-info">
+                                            <span id="matchingFilms" class="member-count"> 0 Member Found ! </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-picture" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <select id="pub_id" class="form-control" name="pub_id">
+                                                <optgroup label="Pub">
+                                                    <option value="0" selected="">Select your favourite pub</option>
+                                                    {% for pubName in pub %}
+                                                        <option value="{{ pubName.getId }}">{{ pubName.getPubName }}</option>
+                                                    {% endfor %}
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="text-info">
+                                            <span id="matchingPub" class="member-count"> 0 Member Found ! </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-envelope" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <input type="email" id="txtEmail" class="form-control" name="user_name" placeholder="Enter your email address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-phone" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <input type="text" id="txtPhone" class="form-control" name="phone_number" placeholder="Enter your phone number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="icon-key" style="width: 16px;height: 16px;"></i></span>
+                                            </div>
+                                            <input type="password" id="txtPassword" class="form-control" name="password" placeholder="Enter your password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <button type="submit" name="register" class="btn btn-primary btn-lg text-uppercase border rounded gradient-color" style="width:100%;"><span class="mr-3">Sign me up</span><i class="icon-arrow-right-circle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row input-container">
+                                    <div class="col-md-8">
+                                        <div class="input-group"><select class="form-control" name="selDonation" style="font-size: 12px;"><optgroup label="Donation"><option value="1" selected="">MAKE A DONATION TO SUPPORT THE WEBSITE 1 €</option><option value="5">MAKE A DONATION TO SUPPORT THE WEBSITE 5 €</option><option value="10">MAKE A DONATION TO SUPPORT THE WEBSITE 10 €</option></optgroup></select></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section></section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+
+        function getName(value) {
+           var id = value;
+            var path = "{{ (path('count_name', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+            path = path.replace("ReplaceMeWithCorrectValue", id);
+            $.ajax({
+                type: 'POST',
+                url: path,
+                success: function (data) {
+                    $("#matchingName").text(data + ' Member Found !');
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+            $('#country_id').change(function () {
+                var id = $(this).val();
+                var path = "{{ (path('count_country', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+                path = path.replace("ReplaceMeWithCorrectValue", id);
+                $.ajax({
+                    type: 'POST',
+                    url: path,
+                    success: function (data) {
+                        $("#matchingCountry").text(data + ' Member Found !');
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#city_id').change(function () {
+                var id = $(this).val();
+                var path = "{{ (path('count_city', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+                path = path.replace("ReplaceMeWithCorrectValue", id);
+                $.ajax({
+                    type: 'POST',
+                    url: path,
+                    success: function (data) {
+                        $("#matchingCity").text(data + ' Member Found !');
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#music_id').change(function () {
+                var id = $(this).val();
+                var path = "{{ (path('count_music', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+                path = path.replace("ReplaceMeWithCorrectValue", id);
+                $.ajax({
+                    type: 'POST',
+                    url: path,
+                    success: function (data) {
+                        $("#matchingMusic").text(data + ' Member Found !');
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#film_id').change(function () {
+                var id = $(this).val();
+                var path = "{{ (path('count_film', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+                path = path.replace("ReplaceMeWithCorrectValue", id);
+                $.ajax({
+                    type: 'POST',
+                    url: path,
+                    success: function (data) {
+                        $("#matchingFilms").text(data + ' Member Found !');
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#pub_id').change(function () {
+                var id = $(this).val();
+                var path = "{{ (path('count_pub', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+                path = path.replace("ReplaceMeWithCorrectValue", id);
+                $.ajax({
+                    type: 'POST',
+                    url: path,
+                    success: function (data) {
+                        $("#matchingPub").text(data + ' Member Found !');
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#birth_date').change(function () {
+                var id = $(this).val();
+                var path = "{{ (path('count_dob', {'id': 'ReplaceMeWithCorrectValue'})) }}";
+                path = path.replace("ReplaceMeWithCorrectValue", id);
+                $.ajax({
+                    type: 'POST',
+                    url: path,
+                    success: function (data) {
+                        $("#matchingDob").text(data + ' Member Found !');
+                    }
+                });
+            });
+        });
+
+    </script>
+    {% endblock %}
+

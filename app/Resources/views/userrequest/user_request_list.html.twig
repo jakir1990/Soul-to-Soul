@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row" id="pageHeader">
+        <div class="col">
+            <h5 class="text-info text-center mb-4">Requested to connect you</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 text-center mb-5"><a class="d-block pt-3 bg-light" href="member-profile.html"><img class="rounded-circle img-fluid" src="{{ asset('RFAsset/assets/img/profile-pic1.jpg')}}" width="100" height="100" style="margin-bottom:20px;"><p class="mb-1 profile-name"><strong>Full Name, 40</strong></p><p class="text-muted mb-0 pb-2" style="font-size: 12px;"><strong>Dhaka, Bangladesh</strong></p></a>
+            <ul
+                    class="list-inline profile-features bg-light pt-3">
+                <li class="list-inline-item list-connect"><a class="text-success" href="#"><i class="icon-loop" style="font-size: 24px;"></i><div><span>Accept<br></span></div></a></li>
+                <li class="list-inline-item"><a class="text-danger" href="#"><i class="icon-trash" style="font-size: 24px;"></i><div><span>Refused<br></span></div></a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,63 @@
+AppBundle\Entity\Instructions:
+    type: entity
+    table: instructions
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        professions:
+            type: integer
+            nullable: false
+            options:
+                fixed: false
+            column: professions
+        degrees:
+            type: integer
+            nullable: false
+            options:
+                fixed: false
+            column: degrees
+        schoolCurriculum:
+            type: integer
+            nullable: false
+            options:
+                fixed: false
+            column: school_curriculum
+        languages:
+            type: integer
+            nullable: false
+            options:
+                fixed: false
+            column: languages
+        curriculumVitae:
+            type: integer
+            nullable: false
+            options:
+                fixed: false
+            column: curriculum_vitae
+        coverLetter:
+            type: integer
+            nullable: false
+            options:
+                fixed: false
+            column: cover_letter
+        portfolio:
+            type: integer
+            nullable: false
+            options:
+                fixed: false
+            column: portfolio
+        userId:
+            type: integer
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: user_id
+    lifecycleCallbacks: {  }

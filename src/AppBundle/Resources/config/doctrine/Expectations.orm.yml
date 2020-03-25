@@ -1,0 +1,39 @@
+AppBundle\Entity\Expectations:
+  type: entity
+  table: expectations
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    projects:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: projects
+    dream:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: dream
+    others:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: others
+    userId:
+      type: integer
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+      column: user_id
+  lifecycleCallbacks: {  }

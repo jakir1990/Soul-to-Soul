@@ -1,0 +1,117 @@
+AppBundle\Entity\Users:
+    type: entity
+    table: users
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: user_name
+        password:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        fullName:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: full_name
+        phoneNumber:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: phone_number
+        birthDate:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+            column: birth_date
+        countryId:
+            type: integer
+            nullable: false
+            length: 40
+            options:
+                fixed: false
+            column: country_id
+        cityId:
+            type: integer
+            nullable: false
+            length: 40
+            options:
+                fixed: false
+            column: city_id
+        musicId:
+            type: integer
+            nullable: false
+            length: 40
+            options:
+                fixed: false
+            column: music_id
+        filmId:
+            type: integer
+            nullable: false
+            length: 40
+            options:
+                fixed: false
+            column: film_id
+        pubId:
+            type: integer
+            nullable: false
+            length: 40
+            options:
+                fixed: false
+            column: pub_id
+        preText:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: pre_text
+        preMediaUrl:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: pre_media_url
+        role:
+            type: string
+            length: 45
+            options:
+                comment: '1=Active by default, 2=deleted, 0=inactive'
+                default: 'ROLE_USER'
+        forgotCode:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: forgot_code
+        isActive:
+            type: integer
+            nullable: false
+            options:
+                comment: '1=Active by default, 2=deleted, 0=inactive'
+                default: '1'
+            column: is_active
+    lifecycleCallbacks: {  }

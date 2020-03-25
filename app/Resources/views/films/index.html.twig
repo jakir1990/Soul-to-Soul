@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Films list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Filmname</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for film in films %}
+            <tr>
+                <td><a href="{{ path('films_show', { 'id': film.id }) }}">{{ film.id }}</a></td>
+                <td>{{ film.filmName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('films_show', { 'id': film.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('films_edit', { 'id': film.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('films_new') }}">Create a new film</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,56 @@
+AppBundle\Entity\WhatLike:
+  type: entity
+  table: what_like
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    refUserId:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: ref_user_id
+    favoriteFilm:
+        type: integer
+        nullable: false
+        options:
+          fixed: false
+        column: favorite_film
+    favoriteMusic:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: favorite_music
+    preferredAdv:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: preferred_adv
+    favoriteQuote:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: favorite_quote
+    favoriteAnimal:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: favorite_animal
+    favoriteColor:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: favorite_color
+  lifecycleCallbacks: {  }

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row" id="pageHeader">
+        <div class="col">
+            <h5 class="text-info text-center">Following member visits your profile</h5>
+        </div>
+    </div>
+    <div class="row mb-4">
+        {% for suggestUser in all_user %}
+            <div class="col-lg-2 text-center mb-3">
+                <a class="d-block pt-3 pb-2 bg-light" href="{{ 'view-member' }}/{{ suggestUser.id }}">
+                    <img class="rounded-circle img-fluid" src="{{ asset('RFAsset/assets/img/profile-pic1.jpg')}}" width="100" height="100" style="margin-bottom:20px;">
+                    <p class="mb-1 profile-name"><strong>{{ suggestUser.full_name }}</strong></p>
+                    <p class="text-muted" style="font-size: 12px;"><strong>{{ suggestUser.city_name }}, {{ suggestUser.country_name }}</strong></p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,39 @@
+AppBundle\Entity\Education:
+  type: entity
+  table: education
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    degree:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: degree
+    commitments:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: commitments
+    policies:
+      type: integer
+      nullable: false
+      options:
+        fixed: false
+      column: policies
+    userId:
+      type: integer
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+      column: user_id
+  lifecycleCallbacks: {  }

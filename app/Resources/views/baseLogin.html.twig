@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Home - Dating Social Network</title>
+        <meta name="description" content="A social network against social, professional, physical, sexist, homophobic, also ethnic discrimination.">
+        <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('RFAsset/assets/img/Logo.png')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/fonts/ionicons.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/fonts/simple-line-icons.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/css/menu-sidebar.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/css/Footer-Basic.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/css/Footer-Dark.css')}}">
+        <link rel="stylesheet" href="{{ asset('RFAsset/assets/css/style.css')}}">
+    </head>
+    <body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+        <div class="container"><a class="navbar-brand" href="{{ '/' }}"><img src="{{ asset('RFAsset/assets/img/Logo.png')}}" style="width: 32px;margin-right: 5px;">Dating Social Network</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div
+                    class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#sign-up">Sign Up</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" data-toggle="modal" data-target="#modal-login">Log In</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Menu</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        {% block body %}
+
+        {% endblock %}
+
+        {% block javascripts %}
+
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Community</h3>
+                        <ul>
+                            <li><a href="#">Sign up</a></li>
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="{{ 'privacy-policy' }}">Privacy</a></li>
+                            <li><a href="#">Terms of use</a></li>
+                            <li><a href="{{ 'cookie-policy' }}">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Dating Social Network</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <footer class="text-center py-5 bg-black">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-login">
+            <form role="form" action="{{ path('login') }}" method="post">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center">Login</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                        <div class="modal-body" style="padding-top: 0;padding-bottom: 0;font-size: 12px;">
+                            <p style="font-size: 13px;padding: 10px;">By clicking Sign Up, you agree to our <a href="#">Terms</a>. Learn how we process your data in our <a href="#">Privacy Policy</a>&nbsp;and&nbsp;<a href="#">Cookie Policy</a>&nbsp;.<br></p>
+                        </div><button class="btn btn-primary text-center text-success border rounded" type="button" style="background-color: #ffffff;width: 280px;margin: 0 auto;background-image: url(&quot;assets/img/google.svg&quot;);background-position: 5% center;background-repeat: no-repeat;">Login using Google</button>
+                        <p>Or<br></p>
+                        <input type="text" id="username" name="_username" placeholder="User Name" minlength="3" maxlength="50" style="width: 280px;margin: 5px auto;">
+                        <input type="password" id="password" name="_password" placeholder="Password" minlength="3" maxlength="50" style="width: 280px;margin: 5px auto;">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                        <p style="font-size: 13px;padding: 27px;">Don't have an account?&nbsp;<a href="#">Signup Here</a>. or&nbsp;<a href="#">Forgot Password?</a><br></p>
+                        <div class="modal-footer">
+                            <button class="btn btn-light" type="button" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" name="login">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© Dating Social Network 2020</p>
+        </div>
+     </footer>
+        <script src="{{ asset('RFAsset/assets/js/jquery.min.js')}}"></script>
+        <script src="{{ asset('RFAsset/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{ asset('RFAsset/assets/js/main.js')}}"></script>
+        <script src="{{ asset('RFAsset/assets/js/bs-init.js')}}"></script>
+    </body>
+</html>  
+{% endblock %}
